@@ -9,4 +9,31 @@ function computerPlay() {
     return compPlay[spot];
 }
 
-computerPlay();
+//play round
+//take in two parameters, players selection and computers selection
+function playRound(player, computer) {
+    //compare players selection to computers selection
+    //check for draw
+    if(player == computer){
+        //return outcome
+        return "Draw! No Winner."
+    }
+    //check for player win
+    else if((player == "rock" && computer == "scissors") || (player == "paper" && computer == "rock") || (player == "scissors" && computer == "paper")){
+        //return outcome
+        return `Winner! ${player} beats ${computer}!`;
+    }
+        
+    //check for player loss
+    else if((computer == "rock" && player == "scissors") || (computer == "paper" && player == "rock") || (computer == "scissors" && player == "paper")){
+        //return outcome
+        return `You lose! ${computer} beats ${player}!`;
+    }
+}
+
+
+
+console.log(playRound("rock", computerPlay()));
+console.log(playRound("paper", computerPlay()));
+console.log(playRound("scissors", computerPlay()));
+//computerPlay();
