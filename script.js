@@ -1,4 +1,29 @@
+//variables
+const startGame = document.querySelector('.startGame');
+const rock = document.querySelector('.rock');
+const rockIcon = document.querySelector('.fa-hand-rock');
+const paper = document.querySelector('.paper');
+const paperIcon = document.querySelector('.fa-hand-paper');
+const scissors = document.querySelector('.scissors');
+const scissorsIcon = document.querySelector('.fa-hand-scissors');
 
+//event listeners
+startGame.addEventListener('click', () => {
+    let name = prompt("Whats your name?");
+    const newh2 = document.querySelector('.score-p');
+    const x = document.querySelector('.playerScore');
+    newh2.textContent = `${name}`;
+    x.appendChild(newh2);
+});
+rock.addEventListener('click', () => {
+    rockIcon.classList.remove('displayIcon');
+});
+paper.addEventListener('click', () => {
+    paperIcon.classList.remove('displayIcon');
+});
+scissors.addEventListener('click', () => {
+    scissorsIcon.classList.remove('displayIcon');
+});
 
 //computer play
 //randomly return either "rock", "paper" or "scissors"
@@ -50,7 +75,7 @@ function game() {
     //calls playRound 5 times
     for(let i = 0; i < rounds; i++){
         //get player selection
-        let playerMove = prompt("Enter rock, paper, or scissors");
+        //let playerMove = prompt("Enter rock, paper, or scissors");
         //plays a round and keeps track of who won the round;
         winnerOfRound = playRound(playerMove,computerPlay());
         //keep track of wins
@@ -74,6 +99,6 @@ function game() {
     }
 }
 
-game();
+//game();
 
 

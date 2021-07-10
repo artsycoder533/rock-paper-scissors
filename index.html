@@ -4,10 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>Rock Paper Scissors</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <div class="container">
+        <h1>Rock, Paper, Scissors</h1>
+        <p>First player to <span>5</span> wins!! <button class="btn startGame">Start Game</button></p>
+        <div class="scoreboard">
+            <div class="playerScore">
+                <h2 class ="score-p">Player</h2>
+                <p id="playerScore"></p>
+            </div>
+            <div class="computerScore">
+                <h2 class ="score">Computer</h2>
+                <p id="computerScore"></p>
+            </div>
+        </div>
+
+        <div class="moves">
+            <div class="playerMove">
+                <!-- <i class="fas fa-question"></i> -->
+                <i class="displayIcon far fa-hand-rock"></i>
+                <i class="displayIcon far fa-hand-paper"></i>
+                <i class="displayIcon far fa-hand-scissors"></i>
+            </div>
+            <div class="computerMove">
+                <!-- <i class="fas fa-question"></i> -->
+                <i class="displayIcon far fa-hand-rock"></i>
+                <i class="displayIcon far fa-hand-paper"></i>
+                <i class="displayIcon far fa-hand-scissors"></i>
+            </div>
+        </div>
+
+        <div class="playerButtons">
+            <button class="rock btn">Rock</button>
+            <button class="paper btn">Paper</button>
+            <button class="scissors btn">Scissors</button>
+        </div>
+    </div>
+    
+    <footer>
+        <small>Created by: Natasha Johnson</small>
+    </footer>
+    
+
+    
+    
+
+   
+    
+
+
+    
+    
     
 </body>
 </html>
