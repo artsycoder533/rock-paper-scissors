@@ -1,11 +1,19 @@
 //variables
 const startGame = document.querySelector('.startGame');
 const rock = document.querySelector('.rock');
-const rockIcon = document.querySelector('.fa-hand-rock');
+const rockIcon = document.querySelector('.playerMove .fa-hand-rock');
 const paper = document.querySelector('.paper');
-const paperIcon = document.querySelector('.fa-hand-paper');
+const paperIcon = document.querySelector('.playerMove .fa-hand-paper');
 const scissors = document.querySelector('.scissors');
-const scissorsIcon = document.querySelector('.fa-hand-scissors');
+const scissorsIcon = document.querySelector('.playerMove .fa-hand-scissors');
+//comuter variables
+const rockIconComp = document.querySelector('.computerMove .fa-hand-rock');
+const paperIconComp = document.querySelector('.computerMove .fa-hand-paper');
+const scissorsIconComp = document.querySelector('.computerMove .fa-hand-scissors');
+const player = document.getElementsByClassName('.playerScore');
+//player score
+const playScoreDisplay = document.getElementById('#playerScore');
+//computer score
 
 //event listeners
 startGame.addEventListener('click', () => {
@@ -16,15 +24,56 @@ startGame.addEventListener('click', () => {
     x.appendChild(newh2);
 });
 rock.addEventListener('click', () => {
+    //display rock icon
     rockIcon.classList.remove('displayIcon');
+    //turn off other icons
+    paperIcon.classList.add('displayIcon');
+    scissorsIcon.classList.add('displayIcon');
+    //call playRound function with corresponding player selection as first parameter
+    playRound(rock, computerPlay());
 });
 paper.addEventListener('click', () => {
     paperIcon.classList.remove('displayIcon');
+    //turn off other icons
+    rockIcon.classList.add('displayIcon');
+    scissorsIcon.classList.add('displayIcon');
+    playRound(paper, computerPlay());
 });
 scissors.addEventListener('click', () => {
     scissorsIcon.classList.remove('displayIcon');
+    //turn off other icons
+    rockIcon.classList.add('displayIcon');
+    paperIcon.classList.add('displayIcon');
+    playRound(scissors, computerPlay());
 });
 
+function showComputerPlay (move) {
+    //rock
+    if (move === "rock"){
+        //turn on rock icon
+        rockIconComp.classList.remove('displayIcon');
+        //turn off other icons
+        paperIconComp.classList.add('displayIcon');
+        scissorsIconComp.classList.add('displayIcon');
+    }
+    //paper
+    else if (move === "paper"){
+        //turn on paper icon
+        paperIconComp.classList.remove('displayIcon');
+        //turn off other icons
+        rockIconComp.classList.add('displayIcon');
+        scissorsIconComp.classList.add('displayIcon');
+    }
+    //scissors
+    else if (move === "scissors"){
+        //turn on scissors icon
+        scissorsIconComp.classList.remove('displayIcon');
+        //turn off other icons
+        rockIconComp.classList.add('displayIcon');
+        paperIconComp.classList.add('displayIcon');
+    }
+    
+}
 //computer play
 //randomly return either "rock", "paper" or "scissors"
 function computerPlay() {
@@ -32,6 +81,8 @@ function computerPlay() {
     const compPlay = ["rock", "paper", "scissors"];
     //use a random number generator to produce a number between 0 and 2
     let spot = Math.floor(Math.random() * 3);
+    //display corresponding icon on screen, turn off others
+    showComputerPlay(compPlay[spot]);
     //return the element at that randomly generated spot
     return compPlay[spot];
 }
@@ -52,6 +103,8 @@ function playRound(player, computer) {
     else if((player == "rock" && computer == "scissors") || (player == "paper" && computer == "rock") || (player == "scissors" && computer == "paper")){
         //return outcome
         roundWinner = "player";
+        playerScoreDisplay.textContent = "1";
+        player.appendChild(playerScoreDisplay);
         //return `Winner! ${player} beats ${computer}!`;
     }
         
