@@ -5,7 +5,7 @@
 }
 
 body {
-    height: 95vh;
+    height: 90vh;
     width: 75%;
     margin: auto;
     color: lightgray;
@@ -19,9 +19,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-    //border: dashed 2px red;
-    padding: 5px;
+    height: 95%;
+    padding: 2px;
 }
 
 h1 {
