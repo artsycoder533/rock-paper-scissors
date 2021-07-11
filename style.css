@@ -37,6 +37,10 @@ p {
     justify-content: center;
 }
 
+a {
+    color: lightgray;
+}
+
 .scoreboard {
     display: flex;
     justify-content: space-between;
